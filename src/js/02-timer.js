@@ -3,6 +3,8 @@ import flatpickr from 'flatpickr';
 // Додатковий імпорт стилів
 import 'flatpickr/dist/flatpickr.min.css';
 
+import Notiflix from 'notiflix';
+
 const options = {
   enableTime: true,
   time_24hr: true,
@@ -12,7 +14,8 @@ const options = {
     console.log(selectedDates[0]);
     if (selectedDates[0] < new Date()) {
       buttonStart.setAttribute('disabled', true);
-      alert('Please choose a date in the future');
+      // alert('Please choose a date in the future');
+      Notiflix.Notify.failure('Please choose a date in the future');
     } else {
       startDate = selectedDates[0];
       buttonStart.removeAttribute('disabled', true);
