@@ -14,7 +14,6 @@ const options = {
     console.log(selectedDates[0]);
     if (selectedDates[0] < new Date()) {
       buttonStart.setAttribute('disabled', true);
-      // alert('Please choose a date in the future');
       Notiflix.Notify.failure('Please choose a date in the future');
     } else {
       startDate = selectedDates[0];
@@ -52,14 +51,6 @@ function convertMs(ms) {
 
   return { days, hours, minutes, seconds };
 }
-
-// function displayDate(date) {
-//   days.textContent = date.getUTCDate();
-//   hours.textContent = date.getUTCHours();
-//   minutes.textContent = date.getUTCMinutes();
-//   seconds.textContent = date.getUTCSeconds();
-// }
-// displayDate(new Date());
 
 function updateTime() {
   const deltaTime = startDate - new Date();
