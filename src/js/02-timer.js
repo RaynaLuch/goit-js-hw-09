@@ -52,15 +52,19 @@ function convertMs(ms) {
   return { days, hours, minutes, seconds };
 }
 
+function addLeadingZero(value) {
+  return value.padStart(2, '0');
+}
+
 function updateTime() {
   const deltaTime = startDate - new Date();
   const delta = convertMs(deltaTime);
 
   if (delta.seconds >= 0) {
-    days.textContent = delta.days;
-    hours.textContent = delta.hours;
-    minutes.textContent = delta.minutes;
-    seconds.textContent = delta.seconds;
+    days.textContent = addLeadingZero(String(delta.days));
+    hours.textContent = addLeadingZero(String(delta.hours));
+    minutes.textContent = addLeadingZero(String(delta.minutes));
+    seconds.textContent = addLeadingZero(String(delta.seconds));
     setTimeout(updateTime, 1000);
   }
 }
